@@ -1,6 +1,6 @@
 CREATE TABLE Personajes 
 (
-    ID INT(2) PRIMARY KEY,
+    ID INT(2),
     Nombre VARCHAR(40),
     Popularidad INT(99),
     Tipo VARCHAR(40),
@@ -13,16 +13,18 @@ CREATE TABLE Personajes
     Velocidad INT(2),
     Durabilidad INT(2),
     Energia INT(2),
-    Habilidades_de_lucha INT(2)
+    Habilidades_de_lucha INT(2),
+    CONSTRAINT PK_ID PRIMARY KEY (ID)
 );
 
 CREATE TABLE EQUIPOS
 ( 
-    ID INT(2) PRIMARY KEY,
+    ID INT(2),
     Nombre VARCHAR(40),
     Creacion DATE,
-    Heroes INT(2),
-    Villanos INT(2)
+    Personajes INT(2),
+    CONSTRAINT PK_ID PRIMARY KEY (ID),
+    CONSTRAINT FK_Nombre FOREIGN KEY (Personajes) REFERENCES Personajes (Nombre)
 );
     
 INSERT INTO Personajes VALUES(1, "Spider Man", 1, "Good", "Male", 1.78, 75.75, "USA", 4, 4, 3, 3, 1, 4); 
@@ -52,8 +54,10 @@ INSERT INTO Personajes VALUES(24, "Venon", 78, "Neutral", "Male", 1.90, 118, "EU
 INSERT INTO Personajes VALUES(25, "Juggernaut", 76, "Neutral", "Male", 2.87, 862, "EUA", 2, 7, 2, 7, 1, 4);
 INSERT INTO Personajes VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA", 5, 2, 2, 2, 5, 3);
 
-INSERT INTO EQUIPOS VALUES(1, "Vengadores", 1989, 23, 0);
-INSERT INTO EQUIPOS VALUES(2, "Vengadores Secretos", 2008, 0, 8);
-INSERT INTO EQUIPOS VALUES(3, "X-Men", 1996, 34, 0);
-INSERT INTO EQUIPOS VALUES(4, "Patrulla-X", 1992, 5, 0);
-INSERT INTO EQUIPOS VALUES(5, "Inhumanos", 1999, 26, 3);
+INSERT INTO EQUIPOS VALUES(1, "Vengadores", 1989, 23);
+INSERT INTO EQUIPOS VALUES(2, "Vengadores Secretos", 2008, 8);
+INSERT INTO EQUIPOS VALUES(3, "X-Men", 1996, 15);
+INSERT INTO EQUIPOS VALUES(4, "Patrulla-X", 1992, 5);
+INSERT INTO EQUIPOS VALUES(5, "Inhumanos", 1999, 26);
+INSERT INTO EQUIPOS VALUES(6, "Defensores", 2003, 7);
+INSERT INTO EQUIPOS VALUES(7, "Campeones", 2004, 17);
