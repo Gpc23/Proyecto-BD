@@ -1,3 +1,13 @@
+create database ProyectoBD;
+create user ‘gonzalo’@’%’ identified by ‘1234’;
+grant all privileges on ProyectoBD.* to ‘gonzalo’@’%’;
+flush privileges;
+exit
+
+mysql -u gonzalo -p
+use ProyectoBD
+
+
 CREATE TABLE Personajes 
 (
     ID INT(2),
