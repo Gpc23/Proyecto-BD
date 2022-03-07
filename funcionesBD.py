@@ -91,9 +91,9 @@ def insertar_personaje(db,personaje):
     try:
         cursor.execute(sql)
         db.commit()
-        print("Campeón añadido con éxito")
+        print("Personaje añadido con éxito")
     except:
-        print("Error al insertar al campeón")
+        print("Error al insertar al personaje")
         db.rollback
 
 
